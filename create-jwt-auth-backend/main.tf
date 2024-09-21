@@ -2,8 +2,9 @@
 resource "vault_jwt_auth_backend" "main" {
     description         = "Terraform Dynamic Credential Provider"
     path                = "jwt"
-    oidc_discovery_url  = "https://app.terraform.io/"
-    bound_issuer        = "https://app.terraform.io/"
+    type                = "jwt"
+    oidc_discovery_url  = "https://app.terraform.io"
+    bound_issuer        = "https://app.terraform.io"
 }
 
 #vault_policy
