@@ -1,23 +1,18 @@
-resource "aws_iam_user" "vault_admin" {
-  name = var.user_name
+resource "aws_iam_user" "vault_root" {
+  name = "vault-root"
   path = "/"
 
   tags = {
-    Name = var.user_name
+    Name = "vault-root"
   }
 }
 
-resource "aws_iam_access_key" "vault_admin_accesskey" {
-  user = aws_iam_user.vault_admin.name
-  lifecycle {
-    ignore_changes = [
-    user
-    ]
-  }
+resource "aws_iam_access_key" "vault_root" {
+  user = aws_iam_user.vault_root.name
 }
 
-data "aws_iam_policy_document" "inline_po_vault" {
-  statement {
+data "aws_iam_policy_document" "vault_root" {
+statement {
     effect    = "Allow"
     actions   = [
         "iam:AttachUserPolicy",
@@ -37,13 +32,13 @@ data "aws_iam_policy_document" "inline_po_vault" {
         "iam:RemoveUserFromGroup"
         ]
     resources = [
-		"arn:aws:iam::186605000301:user/vault-*"
+    "arn:aws:iam::186605000301:user/vault-*"
         ]
   }
 }
 
-resource "aws_iam_user_policy" "inline_po_attach" {
-  name   = var.inline_po_name
-  user   = aws_iam_user.vault_admin.name
-  policy = data.aws_iam_policy_document.inline_po_vault.json
+resource "aws_iam_user_policy" "vault_root" {
+  name   = "vault-root-policy"
+  user   = aws_iam_user.vault_root.name
+  policy = data.aws_iam_policy_document.vault_root.json
 }
