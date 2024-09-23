@@ -12,7 +12,7 @@ resource "aws_iam_access_key" "vault_root" {
 }
 
 data "aws_iam_policy_document" "vault_root" {
-statement {
+  statement {
     effect    = "Allow"
     actions   = [
         "iam:AttachUserPolicy",
