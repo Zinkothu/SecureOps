@@ -18,3 +18,4 @@ resource "vault_kv_secret_v2" "example" {
     }
   )
 }
+
