@@ -69,6 +69,9 @@ path "sys/policies/*" {
 path "sys/policies/" {
   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
 }
+path "example/*" {
+  capabilities = ["create", "read", "update", "patch", "delete", "list"]
+}
 EOT
 }
 
