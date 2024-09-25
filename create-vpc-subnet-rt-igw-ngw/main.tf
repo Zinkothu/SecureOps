@@ -10,7 +10,7 @@ resource "aws_vpc" "main" {
 # Publiс Subnets
 ###############################################################################
 
-resource "aws_subnet" "public_subnet_01" {
+resource "aws_subnet" "public_subnets" {
   count = length(var.public_subnets) #length will be base on the var.public_subnet subnet ammount current is 3
   vpc_id     = aws_vpc.main.id
   cidr_block = var.public_subnets[count.index] #count.index is will call index number 0 then 1 and 2 
@@ -19,6 +19,22 @@ resource "aws_subnet" "public_subnet_01" {
 
   tags = {
     Name = "public-subnet-0${count.index+1}-${data.aws_availability_zones.azs.names[count.index]}"
+  }
+}
+
+################################################################################
+# Private Subnets
+###############################################################################
+
+resource "aws_subnet" "private_subnets" {
+  count = length(var.private_subnets) #length will be base on the var.public_subnet subnet ammount current is 3
+  vpc_id     = aws_vpc.main.id
+  cidr_block = var.private_subnets[count.index] #count.index is will call index number 0 then 1 and 2 
+  availability_zone  =  data.aws_availability_zones.azs.names[count.index]
+  map_public_ip_on_launch = true  #public ip assign
+
+  tags = {
+    Name = "private-subnet-0${count.index+1}-${data.aws_availability_zones.azs.names[count.index]}"
   }
 }
 
