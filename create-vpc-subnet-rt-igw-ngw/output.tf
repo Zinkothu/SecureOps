@@ -39,7 +39,7 @@ output "vpc_owner_id" {
 ################################################################################
 output "igw_id" {
   description = "The ID of the Internet Gateway"
-  value       = aws_internet_gateway.this.id
+  value       = aws_internet_gateway.public_igw.id
 }
 output "igw_arn" {
   description = "The ARN of the Internet Gateway"
@@ -64,10 +64,10 @@ output "public_route_table_ids" {
   description = "List of IDs of public route tables"
   value       = aws_route_table.public_rt[*].id
 }
-output "public_internet_gateway_route_id" {
-  description = "ID of the internet gateway route"
-  value       = aws_route.public_igw.id
-}
+# output "public_internet_gateway_route_id" {
+#   description = "ID of the internet gateway route"
+#   value       = aws_route.public_igw.id
+# }
 # output "public_route_table_association_ids" {
 #   description = "List of IDs of the public route table association"
 #   value       = aws_route_table_association.public[*].id
