@@ -3,7 +3,7 @@ output "azs" {
 }
 
 
-###############################################################################
+################################################################################
 # VPC
 ################################################################################
 output "vpc_id" {
@@ -64,56 +64,56 @@ output "public_route_table_ids" {
   description = "List of IDs of public route tables"
   value       = aws_route_table.public_rt[*].id
 }
-output "public_internet_gateway_route_id" {
-  description = "ID of the internet gateway route"
-  value       = aws_route.public.id
-}
-output "public_route_table_association_ids" {
-  description = "List of IDs of the public route table association"
-  value       = aws_route_table_association.public[*].id
-}
-################################################################################
-# Private Subnets
-################################################################################
-output "private_subnets" {
-  description = "List of IDs of private subnets"
-  value       = aws_subnet.private[*].id
-}
-output "private_subnet_arns" {
-  description = "List of ARNs of private subnets"
-  value       = aws_subnet.private[*].arn
-}
-output "private_subnets_cidr_blocks" {
-  description = "List of cidr_blocks of private subnets"
-  value       = aws_subnet.private[*].cidr_block
-}
-output "private_route_table_ids" {
-  description = "List of IDs of private route tables"
-  value       = aws_route_table.private[*].id
-}
-output "private_nat_gateway_route_ids" {
-  description = "List of IDs of the private nat gateway route"
-  value       = aws_route.private_nat_gateway.id
-}
-output "private_route_table_association_ids" {
-  description = "List of IDs of the private route table association"
-  value       = aws_route_table_association.private[*].id
-}
-################################################################################
-# Database Subnets
-################################################################################
-output "database_subnets" {
-  description = "List of IDs of database subnets"
-  value       = aws_subnet.database[*].id
-}
-output "database_subnet_arns" {
-  description = "List of ARNs of database subnets"
-  value       = aws_subnet.database[*].arn
-}
-output "database_subnets_cidr_blocks" {
-  description = "List of cidr_blocks of database subnets"
-  value       = aws_subnet.database[*].cidr_block
-}
+# output "public_internet_gateway_route_id" {
+#   description = "ID of the internet gateway route"
+#   value       = aws_route.public_igw.id
+# }
+# output "public_route_table_association_ids" {
+#   description = "List of IDs of the public route table association"
+#   value       = aws_route_table_association.public[*].id
+# }
+# ################################################################################
+# # Private Subnets
+# ################################################################################
+# output "private_subnets" {
+#   description = "List of IDs of private subnets"
+#   value       = aws_subnet.private[*].id
+# }
+# output "private_subnet_arns" {
+#   description = "List of ARNs of private subnets"
+#   value       = aws_subnet.private[*].arn
+# }
+# output "private_subnets_cidr_blocks" {
+#   description = "List of cidr_blocks of private subnets"
+#   value       = aws_subnet.private[*].cidr_block
+# }
+# output "private_route_table_ids" {
+#   description = "List of IDs of private route tables"
+#   value       = aws_route_table.private[*].id
+# }
+# output "private_nat_gateway_route_ids" {
+#   description = "List of IDs of the private nat gateway route"
+#   value       = aws_route.private_nat_gateway.id
+# }
+# output "private_route_table_association_ids" {
+#   description = "List of IDs of the private route table association"
+#   value       = aws_route_table_association.private[*].id
+# }
+# ################################################################################
+# # Database Subnets
+# ################################################################################
+# output "database_subnets" {
+#   description = "List of IDs of database subnets"
+#   value       = aws_subnet.database[*].id
+# }
+# output "database_subnet_arns" {
+#   description = "List of ARNs of database subnets"
+#   value       = aws_subnet.database[*].arn
+# }
+# output "database_subnets_cidr_blocks" {
+#   description = "List of cidr_blocks of database subnets"
+#   value       = aws_subnet.database[*].cidr_block
+# }
 # output "database_subnet_group" {
 #   description = "ID of database subnet group"
 #   value       = aws_db_subnet_group.database.id
@@ -122,11 +122,11 @@ output "database_subnets_cidr_blocks" {
 #   description = "Name of database subnet group"
 #   value       = aws_db_subnet_group.database.name
 # }
-output "database_route_table_ids" {
-  description = "List of IDs of database route tables"
-  # Refer to https://github.com/terraform-aws-modules/terraform-aws-vpc/pull/926 before changing logic
-  value = aws_route_table.database[*].id
- }
+# output "database_route_table_ids" {
+#   description = "List of IDs of database route tables"
+#   # Refer to https://github.com/terraform-aws-modules/terraform-aws-vpc/pull/926 before changing logic
+#   value = aws_route_table.database[*].id
+# }
 # output "database_nat_gateway_route_ids" {
 #   description = "List of IDs of the database nat gateway route"
 #   value       = aws_route.database_nat_gateway.id
@@ -153,3 +153,4 @@ output "database_route_table_ids" {
 # output "natgw_interface_ids" {
 #   description = "List of Network Interface IDs assigned to NAT Gateways"
 #   value       = aws_nat_gateway.nat.network_interface_id
+# }
