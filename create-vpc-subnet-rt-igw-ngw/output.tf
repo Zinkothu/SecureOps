@@ -126,7 +126,7 @@ output "database_route_table_ids" {
   description = "List of IDs of database route tables"
   # Refer to https://github.com/terraform-aws-modules/terraform-aws-vpc/pull/926 before changing logic
   value = aws_route_table.database[*].id
-# }
+ }
 # output "database_nat_gateway_route_ids" {
 #   description = "List of IDs of the database nat gateway route"
 #   value       = aws_route.database_nat_gateway.id
