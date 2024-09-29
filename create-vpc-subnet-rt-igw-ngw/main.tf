@@ -1,4 +1,3 @@
-
 resource "aws_vpc" "main" {
   cidr_block       = "10.10.0.0/16"
   tags = {
@@ -59,7 +58,7 @@ resource "aws_subnet" "private_subnets" {
   vpc_id     = aws_vpc.main.id
   cidr_block = var.private_subnets[count.index] #count.index is will call index number 0 then 1 and 2 
   availability_zone  =  data.aws_availability_zones.azs.names[count.index]
-  map_public_ip_on_launch = false  #public ip assign
+  # map_public_ip_on_launch = false  #public ip assign
 
   tags = {
     Name = "private-subnet-0${count.index+1}-${data.aws_availability_zones.azs.names[count.index]}"
@@ -86,9 +85,9 @@ resource "aws_route" "private" {
  nat_gateway_id = aws_nat_gateway.nat.id
 }
 
-resource "aws_eip" "nat" {
+resource "aws_eip" "nat" {   #eip elastic ip (public ip)
   domain   = "vpc"
-  depends_on   = [aws_internet_gateway.public_igw]
+  depends_on   = [aws_internet_gateway.public_igw] #require igw for eip
 }
 
 resource "aws_nat_gateway" "nat" {
