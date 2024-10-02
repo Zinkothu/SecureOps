@@ -92,3 +92,4 @@ resource "vault_jwt_auth_backend_role" "main" {
   role_type  = "jwt"
   token_ttl  = 1200
 }
+
