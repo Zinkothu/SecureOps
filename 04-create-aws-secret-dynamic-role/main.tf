@@ -2,7 +2,7 @@ resource "vault_aws_secret_backend" "aws" {
   access_key = aws_iam_access_key.vault_root.id
   secret_key = aws_iam_access_key.vault_root.secret
   region = "ap-southeast-1"
-  path = "aws-iam-admin" #aws secret engine custom path name
+  path = "aws-iam-admin"
   default_lease_ttl_seconds =  900
   max_lease_ttl_seconds = 2000
 }
