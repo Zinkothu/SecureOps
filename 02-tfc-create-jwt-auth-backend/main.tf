@@ -54,10 +54,13 @@ path "db/"
 path "aws-master-account/" {
   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
 }
+path "aws-master-account/*" {
+  capabilities = ["create", "read", "update", "delete", "list", "sudo"]
+}
 path "aws-iam-admin/*" {
   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
 }
-path "aws-master-account/*" {
+path "aws-iam-admin/" {
   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
 }
 path "sys/policy/*" {
