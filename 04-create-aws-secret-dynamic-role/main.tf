@@ -15,7 +15,7 @@ resource "vault_aws_secret_backend_role" "role" {
   policy_arns = ["arn:aws:iam::aws:policy/AdministratorAccess"] #this policy refer to later vault create iam user will get this policy
 }
 
-data "vault_aws_access_credentials" "creds" {
+data "vault_aws_access_credentials" "creds" {  #to read aws dynamic credential role and create a iam user
   backend = vault_aws_secret_backend.aws.path
   role    = vault_aws_secret_backend_role.role.name
 }
