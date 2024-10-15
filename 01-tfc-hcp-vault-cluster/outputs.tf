@@ -11,6 +11,11 @@ output "vault_version" {
   value =  hcp_vault_cluster.aws_hcp_vault_cluster.vault_version
 }
 
+output "hvn_id" {
+  description = "HCP HVN ID"
+  value = hcp_hvn.aws_hcp_vault_hvn
+  
+}
 # output "role_id" {
 #   value = vault_approle_auth_backend_role.tfc_approle.role_id
 # }
