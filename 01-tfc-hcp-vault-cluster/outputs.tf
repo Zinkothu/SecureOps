@@ -21,7 +21,7 @@ output "hvn_id" {
 
 output "vault_id" {
   description = "HCP Vault Cluster ID"
-  value = hcp_vault_cluster.aws_hcp_vault_cluster.id
+  value = hcp_vault_cluster.aws_hcp_vault_cluster.cluster_id
 }
 
 # output "role_id" {
