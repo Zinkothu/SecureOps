@@ -14,7 +14,7 @@ data "terraform_remote_state" "vpc" {
     organization = "hellocloud-zk-tfc-org"
     workspaces = {
       name = "create-vpc-subnet-rt-igw-ngw"
-    }
+    }  
   }
 }
 
